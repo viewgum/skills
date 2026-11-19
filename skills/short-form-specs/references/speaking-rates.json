@@ -1,0 +1,41 @@
+{
+  "name": "Speaking rates for script length: three measured rates, used as slow, normal and fast presets",
+  "version": "2026.11.18",
+  "rates": [
+    {
+      "id": "slow",
+      "wpm": 150,
+      "what": "the average rate of speech for US English speakers",
+      "source": {
+        "publisher": "National Center for Voice and Speech",
+        "title": "Voice qualities (voice production tutorial)",
+        "url": "https://ncvs.org/archive/ncvs/tutorials/voiceprod/tutorial/quality.html",
+        "checked": "2026-10-29"
+      }
+    },
+    {
+      "id": "normal",
+      "wpm": 183,
+      "what": "the average rate for reading aloud in English, across 77 studies",
+      "source": {
+        "publisher": "Brysbaert (2019)",
+        "title": "How many words do we read per minute?, Journal of Memory and Language",
+        "url": "https://doi.org/10.1016/j.jml.2019.104047",
+        "checked": "2026-10-29"
+      }
+    },
+    {
+      "id": "fast",
+      "wpm": 196,
+      "what": "the overall rate in 2,438 recorded English phone conversations",
+      "source": {
+        "publisher": "Yuan, Liberman and Cieri (Interspeech 2006)",
+        "title": "Towards an integrated understanding of speaking rate in conversation",
+        "url": "https://doi.org/10.21437/Interspeech.2006-204",
+        "checked": "2026-10-29"
+      }
+    }
+  ],
+  "hookSeconds": 3,
+  "hookNote": "hookSeconds is an example opening length for the word count, not a platform figure"
+}

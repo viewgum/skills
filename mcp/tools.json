@@ -1,0 +1,87 @@
+{
+  "source": "https://viewgum.com/.well-known/mcp/server-card.json",
+  "checked": "2026-11-18",
+  "server": "https://viewgum.com/mcp",
+  "tools": [
+    {
+      "name": "get_credits",
+      "description": "The account's plan and credits left. Free."
+    },
+    {
+      "name": "list_formats",
+      "description": "The kinds, styles, story shapes, formats and writers this account can make, with the ids quote_short takes. Free; a card shows them."
+    },
+    {
+      "name": "quote_short",
+      "description": "Prices a new short as a quote_id; nothing is charged until make_short runs with it."
+    },
+    {
+      "name": "make_short",
+      "description": "Makes the short a quote_short quote priced and charges exactly that, or holds a range's top and charges what it took; one quote_id never charges twice. Making time varies by format; get_short reports progress."
+    },
+    {
+      "name": "get_short",
+      "description": "Status, step, length, format and script; app_url and edit_url (its timeline) open it for the signed-in person only; once exported, an MP4 link (one hour) and post copy. Free; waits up to 50 s."
+    },
+    {
+      "name": "list_shorts",
+      "description": "The account's recent shorts, newest first, with status. Free."
+    },
+    {
+      "name": "quote_edit",
+      "description": "Plans a change asked in plain words and prices it as a quote_id, and the ask and reply join the short's chat; nothing changes or is charged until edit_short runs with it."
+    },
+    {
+      "name": "edit_short",
+      "description": "Applies a quote_edit plan and charges exactly that; no quote_id charges twice. A quote on a short that changed since is refused."
+    },
+    {
+      "name": "set_caption_words",
+      "description": "Sets words per caption (1 to 6, null resets), free; export again after. Rendered shorts need layered captions."
+    },
+    {
+      "name": "get_short_view",
+      "description": "A short's timeline as its editor shows it: tracks with rows by id and time, captions and the free edits open now. Free; read it before propose_edits."
+    },
+    {
+      "name": "list_capabilities",
+      "description": "What each free edit does and the fields it takes, then those closed on this short and why. Free."
+    },
+    {
+      "name": "propose_edits",
+      "description": "Dry-runs free edits as the editor would and returns what would change and a session_id; nothing is saved or charged. Show the person, then apply_edit_session or discard_edit_session."
+    },
+    {
+      "name": "apply_edit_session",
+      "description": "Saves a proposed session as one free change the person can undo in one step, once. Returns the new revision and the rows it changed."
+    },
+    {
+      "name": "discard_edit_session",
+      "description": "Drops a proposed session; the short stays as it is. Free."
+    },
+    {
+      "name": "undo_edit",
+      "description": "Steps free edits back (undo) or forward (redo), or restores a cut's earlier version by number. Free; refused if the short changed since revision."
+    },
+    {
+      "name": "quote_export",
+      "description": "Prices an MP4 export of a short or first cut as a quote_id; nothing is charged until export_short runs with it."
+    },
+    {
+      "name": "export_short",
+      "description": "Exports the MP4 a quote_export quote priced and charges exactly that; the same quote_id never charges twice. get_short has the link once it is done."
+    },
+    {
+      "name": "check_export",
+      "description": "Stills at the times asked and the loudness of the short's exported MP4, to look it over. Free; after a change, export again first."
+    },
+    {
+      "name": "list_kits",
+      "description": "The person's private brand kits (their 2D animation look) and presets. Free."
+    },
+    {
+      "name": "save_kit",
+      "description": "Changes the kit_id kit (make_default picks it), else saves a new one from a preset, a copy or surprise. Free."
+    }
+  ]
+}

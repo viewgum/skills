@@ -1,0 +1,18 @@
+{
+  "name": "viewgum",
+  "owner": {
+    "name": "ViewGum",
+    "email": "support@viewgum.com",
+    "url": "https://viewgum.com"
+  },
+  "description": "ViewGum's skills and MCP connector for making vertical short videos from an agent.",
+  "plugins": [
+    {
+      "name": "viewgum",
+      "source": "./",
+      "description": "The ViewGum connector and two skills: viewgum-shorts (make, edit and export shorts, pricing first) and short-form-specs (safe zones, length and caption limits).",
+      "homepage": "https://viewgum.com/agents",
+      "license": "MIT AND CC-BY-4.0"
+    }
+  ]
+}

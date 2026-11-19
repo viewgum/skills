@@ -1,0 +1,260 @@
+{
+  "name": "Safe zones for vertical short video",
+  "version": "2026.11.18",
+  "frame": {
+    "width": 1080,
+    "height": 1920
+  },
+  "units": "Pixels on a 1080 x 1920 frame, x from the left edge, y from the top. Scale by width/1080 and height/1920 for other sizes.",
+  "boxShape": "A box is the area the app leaves clear: left, right, top, bottom. From y = railTop down, a button column pushes the right edge in to x = railLeft. With no column, railTop equals bottom and railLeft equals right.",
+  "note": "Each app's box is the safe area in that app's own 9:16 ad guidance; the apps publish no pixel figures for regular posts. What an app covers changes with the placement, the caption's length, the language's reading direction and the app version, so treat these as the published presets, not a guarantee. clearOnEvery is the intersection of the four boxes here.",
+  "platforms": {
+    "tiktok": {
+      "name": "TikTok",
+      "box": {
+        "left": 120,
+        "right": 960,
+        "top": 240,
+        "bottom": 1260,
+        "railTop": 840,
+        "railLeft": 780
+      },
+      "covers": [
+        "feed tabs at the top",
+        "like, comment, save and share column on the right from y = 840",
+        "account name, caption and sound at the bottom (a longer caption covers more)"
+      ],
+      "sources": [
+        {
+          "publisher": "TikTok Business Help",
+          "title": "Video ad specifications (links the safe zone files)",
+          "url": "https://ads.tiktok.com/help/article/video-ads-specifications",
+          "checked": "2026-11-18"
+        },
+        {
+          "publisher": "TikTok",
+          "title": "In-Feed Standard LTR safe zone file (In-Feed/Feed.png, 2880 x 5120: clear x 320 to 2560, y 640 to 3360, x to 2080 from y 2240 down; scaled by 0.375)",
+          "url": "https://lf-tt4b.tiktokcdn.com/obj/i18nblog/tt4b_cms/en-US/5jqet0ab9qci-10e7f5Vig4uhAscNP8XPB0.zip",
+          "checked": "2026-11-18"
+        }
+      ],
+      "margins": {
+        "top": 240,
+        "bottom": 660,
+        "left": 120,
+        "right": 120,
+        "buttonColumn": {
+          "fromY": 840,
+          "toY": 1260,
+          "width": 300
+        }
+      },
+      "clearRects": [
+        {
+          "x": 120,
+          "y": 240,
+          "width": 840,
+          "height": 600
+        },
+        {
+          "x": 120,
+          "y": 840,
+          "width": 660,
+          "height": 420
+        }
+      ],
+      "variant": "In-Feed, Standard, left to right"
+    },
+    "youtube-shorts": {
+      "name": "YouTube Shorts",
+      "box": {
+        "left": 48,
+        "right": 888,
+        "top": 288,
+        "bottom": 1248,
+        "railTop": 1248,
+        "railLeft": 888
+      },
+      "covers": [
+        "top bar",
+        "like, comment and share column the full height of the right side",
+        "title, channel name and subscribe button at the bottom"
+      ],
+      "sources": [
+        {
+          "publisher": "Google Ads Help",
+          "title": "Use square and vertical video to engage mobile customers (safe zone for 1080 x 1920)",
+          "url": "https://support.google.com/google-ads/answer/9128498?hl=en",
+          "checked": "2026-10-23"
+        }
+      ],
+      "margins": {
+        "top": 288,
+        "bottom": 672,
+        "left": 48,
+        "right": 192
+      },
+      "clearRects": [
+        {
+          "x": 48,
+          "y": 288,
+          "width": 840,
+          "height": 960
+        }
+      ]
+    },
+    "instagram-reels": {
+      "name": "Instagram Reels",
+      "box": {
+        "left": 65,
+        "right": 1015,
+        "top": 269,
+        "bottom": 1248,
+        "railTop": 1248,
+        "railLeft": 1015
+      },
+      "covers": [
+        "top bar",
+        "account name, caption and (on ads) the button at the bottom",
+        "like, comment and share icons on the lower right: Meta publishes no width for them beyond the 6% side margin, so they are not modelled here"
+      ],
+      "sources": [
+        {
+          "publisher": "Meta Ads Guide",
+          "title": "Instagram Reels video ads (14% top, 35% bottom, 6% sides)",
+          "url": "https://www.facebook.com/business/ads-guide/update/video/instagram-reels",
+          "checked": "2026-10-29"
+        }
+      ],
+      "margins": {
+        "top": 269,
+        "bottom": 672,
+        "left": 65,
+        "right": 65
+      },
+      "clearRects": [
+        {
+          "x": 65,
+          "y": 269,
+          "width": 950,
+          "height": 979
+        }
+      ]
+    },
+    "facebook-reels": {
+      "name": "Facebook Reels",
+      "box": {
+        "left": 65,
+        "right": 1015,
+        "top": 269,
+        "bottom": 1248,
+        "railTop": 1248,
+        "railLeft": 1015
+      },
+      "covers": [
+        "top bar",
+        "account name, caption and (on ads) the button at the bottom",
+        "like, comment and share icons on the lower right: Meta publishes no width for them beyond the 6% side margin, so they are not modelled here"
+      ],
+      "sources": [
+        {
+          "publisher": "Meta Ads Guide",
+          "title": "Facebook Reels video ads (14% top, 35% bottom, 6% sides)",
+          "url": "https://www.facebook.com/business/ads-guide/update/video/facebook-facebook-reels",
+          "checked": "2026-10-23"
+        }
+      ],
+      "margins": {
+        "top": 269,
+        "bottom": 672,
+        "left": 65,
+        "right": 65
+      },
+      "clearRects": [
+        {
+          "x": 65,
+          "y": 269,
+          "width": 950,
+          "height": 979
+        }
+      ]
+    }
+  },
+  "clearOnEvery": {
+    "name": "Inside the published safe zones of TikTok, YouTube Shorts, Instagram Reels and Facebook Reels at once",
+    "box": {
+      "left": 120,
+      "right": 888,
+      "top": 288,
+      "bottom": 1248,
+      "railTop": 840,
+      "railLeft": 780
+    },
+    "margins": {
+      "top": 288,
+      "bottom": 672,
+      "left": 120,
+      "right": 192,
+      "buttonColumn": {
+        "fromY": 840,
+        "toY": 1248,
+        "width": 300
+      }
+    },
+    "clearRects": [
+      {
+        "x": 120,
+        "y": 288,
+        "width": 768,
+        "height": 552
+      },
+      {
+        "x": 120,
+        "y": 840,
+        "width": 660,
+        "height": 408
+      }
+    ],
+    "how": "The largest top, bottom and side margins of the four apps, and TikTok's button column from y = 840 down (the only app whose column steps in below a line)."
+  },
+  "wide16x9": {
+    "frame": {
+      "width": 1920,
+      "height": 1080
+    },
+    "actionSafe": {
+      "percent": 93,
+      "box": {
+        "left": 67,
+        "right": 1853,
+        "top": 38,
+        "bottom": 1042
+      },
+      "pixels": "1786 x 1004"
+    },
+    "titleSafe": {
+      "percent": 90,
+      "box": {
+        "left": 96.0,
+        "right": 1824.0,
+        "top": 54.0,
+        "bottom": 1026.0
+      },
+      "pixels": "1728 x 972"
+    },
+    "sources": [
+      {
+        "publisher": "NAB TV TechCheck",
+        "title": "SMPTE ST 2046-1 safe areas for 16:9 (March 15, 2010)",
+        "url": "https://nab.org/xert/scitech/2010/TVTechCheck/TV031510.asp",
+        "checked": "2026-10-23"
+      },
+      {
+        "publisher": "SMPTE",
+        "title": "ST 2046-1:2009, Safe Areas for 16:9 Television Systems (section 5.1, table 2)",
+        "url": "https://pub.smpte.org/pub/st2046-1/st2046-1-2009.pdf",
+        "checked": "2026-11-18"
+      }
+    ]
+  }
+}

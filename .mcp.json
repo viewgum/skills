@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "viewgum": {
+      "type": "http",
+      "url": "https://viewgum.com/mcp"
+    }
+  }
+}

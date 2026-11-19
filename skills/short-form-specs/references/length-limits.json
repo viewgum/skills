@@ -1,0 +1,86 @@
+{
+  "name": "Length limits for short video, as each app publishes them",
+  "version": "2026.11.18",
+  "platforms": [
+    {
+      "id": "youtube-shorts",
+      "name": "YouTube Shorts",
+      "maxSeconds": 180,
+      "rule": "Square or vertical uploads up to 3 minutes are Shorts: from October 15, 2024 on most channels, from December 8, 2025 on Official Artist Channels",
+      "sources": [
+        {
+          "publisher": "YouTube Help",
+          "title": "Understand three-minute YouTube Shorts",
+          "url": "https://support.google.com/youtube/answer/15424877?hl=en",
+          "checked": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "maxSeconds": null,
+      "adsMaxSeconds": 600,
+      "rule": "No single limit in TikTok's ad or developer docs: the Content Posting API returns each account's own maximum (max_video_post_duration_sec), and non-Spark In-Feed ads run up to 10 minutes",
+      "sources": [
+        {
+          "publisher": "TikTok Business Help",
+          "title": "Video ad specifications",
+          "url": "https://ads.tiktok.com/help/article/video-ads-specifications",
+          "checked": "2026-11-18"
+        },
+        {
+          "publisher": "TikTok for Developers",
+          "title": "Content Posting API: query creator info (max_video_post_duration_sec)",
+          "url": "https://developers.tiktok.com/doc/content-posting-api-reference-query-creator-info",
+          "checked": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "id": "instagram-reels",
+      "name": "Instagram Reels",
+      "maxSeconds": 1200,
+      "recommendedToNewAudiencesUpToSeconds": 180,
+      "rule": "Up to 20 minutes made in the app, and reels over 3 minutes are not recommended to new audiences; through the publishing API, 3 seconds to 15 minutes",
+      "apiMinSeconds": 3,
+      "apiMaxSeconds": 900,
+      "sources": [
+        {
+          "publisher": "Instagram Help",
+          "title": "Record a reel on Instagram (iPhone)",
+          "url": "https://help.instagram.com/2720958398006062?cms_platform=iphone-app",
+          "checked": "2026-10-18"
+        },
+        {
+          "publisher": "Meta for Developers",
+          "title": "Instagram Platform: IG User Media reference (Reel specifications)",
+          "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+          "checked": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "id": "facebook-reels",
+      "name": "Facebook Reels",
+      "maxSeconds": null,
+      "rule": "No length limit for reels posted on Facebook (Meta, June 2025); the Page Reels publishing API takes 3 to 90 seconds",
+      "apiMinSeconds": 3,
+      "apiMaxSeconds": 90,
+      "sources": [
+        {
+          "publisher": "Meta Newsroom",
+          "title": "Making it easier to create videos on Facebook (June 17, 2025): reels have no length or format restrictions",
+          "url": "https://about.fb.com/news/2025/06/making-it-easier-create-videos-facebook/",
+          "checked": "2026-11-18"
+        },
+        {
+          "publisher": "Meta for Developers",
+          "title": "Reels publishing for Pages (video specifications)",
+          "url": "https://developers.facebook.com/docs/video-api/guides/reels-publishing",
+          "checked": "2026-11-18"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "Title, caption and hashtag limits",
+  "version": "2026.11.18",
+  "platforms": [
+    {
+      "id": "youtube-shorts",
+      "name": "YouTube Shorts",
+      "titleMax": 100,
+      "descriptionMax": 5000,
+      "hashtags": {
+        "max": 60,
+        "over": "YouTube ignores every hashtag on a video with more than 60"
+      },
+      "sources": [
+        {
+          "publisher": "YouTube Help",
+          "title": "Edit video settings",
+          "url": "https://support.google.com/youtube/answer/57404?hl=en",
+          "checked": "2026-10-18"
+        },
+        {
+          "publisher": "YouTube Help",
+          "title": "Use hashtags for search on YouTube",
+          "url": "https://support.google.com/youtube/answer/6390658?hl=en",
+          "checked": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "captionMax": 2200,
+      "counting": "UTF-16 runes, as TikTok's API reference counts them",
+      "note": "The Content Posting API's limit for a video's caption; TikTok publishes no separate limit for the app",
+      "sources": [
+        {
+          "publisher": "TikTok for Developers",
+          "title": "Content Posting API: direct post reference",
+          "url": "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post",
+          "checked": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "id": "instagram-reels",
+      "name": "Instagram Reels",
+      "captionMax": 2200,
+      "hashtags": {
+        "max": 5,
+        "over": "Instagram allows up to 5 hashtags on a post or reel in the app"
+      },
+      "note": "The caption limit is from Meta's publishing API, which accepts up to 30 hashtags",
+      "sources": [
+        {
+          "publisher": "Meta for Developers",
+          "title": "Instagram Platform: IG User Media reference",
+          "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+          "checked": "2026-11-18"
+        },
+        {
+          "publisher": "Instagram Help",
+          "title": "Use hashtags on Instagram",
+          "url": "https://help.instagram.com/351460621611097",
+          "checked": "2026-10-18"
+        }
+      ],
+      "apiHashtagsMax": 30
+    },
+    {
+      "id": "facebook-reels",
+      "name": "Facebook Reels",
+      "captionMax": null,
+      "note": "No caption limit found in Meta's Reels documentation",
+      "sources": [
+        {
+          "publisher": "Meta for Developers",
+          "title": "Reels publishing for Pages",
+          "url": "https://developers.facebook.com/docs/video-api/guides/reels-publishing",
+          "checked": "2026-11-18"
+        }
+      ]
+    }
+  ]
+}
