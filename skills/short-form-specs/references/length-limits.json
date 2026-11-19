@@ -1,6 +1,6 @@
 {
   "name": "Length limits for short video, as each app publishes them",
-  "version": "2026.11.18",
+  "version": "2026.11.19",
   "platforms": [
     {
       "id": "youtube-shorts",
@@ -12,27 +12,48 @@
           "publisher": "YouTube Help",
           "title": "Understand three-minute YouTube Shorts",
           "url": "https://support.google.com/youtube/answer/15424877?hl=en",
-          "checked": "2026-11-18"
+          "checked": "2026-11-19"
         }
       ]
     },
     {
       "id": "tiktok",
       "name": "TikTok",
-      "maxSeconds": null,
+      "maxSeconds": 3600,
+      "webMaxSeconds": 1800,
+      "recordMaxSeconds": 600,
+      "apiMaxSeconds": 600,
       "nonSparkAdsMaxSeconds": 600,
-      "rule": "No single limit in TikTok's ad or developer docs: the Content Posting API returns each account's own maximum (max_video_post_duration_sec), and non-Spark In-Feed ads run up to 10 minutes",
+      "rule": "Up to 60 minutes uploaded in the phone app and 30 minutes uploaded on the web in TikTok Studio, 10 minutes recorded in the app; through the Content Posting API, 10 minutes from the Upload endpoint, and each account's own maximum (max_video_post_duration_sec) for Direct Post; non-Spark In-Feed ads run up to 10 minutes",
       "sources": [
         {
-          "publisher": "TikTok Business Help",
-          "title": "Video ad specifications",
-          "url": "https://ads.tiktok.com/help/article/video-ads-specifications",
-          "checked": "2026-11-18"
+          "publisher": "TikTok Support",
+          "title": "Camera tools (Video length)",
+          "url": "https://support.tiktok.com/en/using-tiktok/creating-videos/camera-tools",
+          "checked": "2026-11-19"
+        },
+        {
+          "publisher": "TikTok Support",
+          "title": "TikTok Studio (Upload on a web browser)",
+          "url": "https://www.tiktok.com/support/faq_detail?id=7581820704895703564&category=web_account",
+          "checked": "2026-11-19"
+        },
+        {
+          "publisher": "TikTok for Developers",
+          "title": "Content Posting API: Media Transfer Guide (Duration restrictions)",
+          "url": "https://developers.tiktok.com/docs/en/content-posting-api-media-transfer-guide",
+          "checked": "2026-11-19"
         },
         {
           "publisher": "TikTok for Developers",
           "title": "Content Posting API: query creator info (max_video_post_duration_sec)",
-          "url": "https://developers.tiktok.com/doc/content-posting-api-reference-query-creator-info",
+          "url": "https://developers.tiktok.com/docs/en/content-posting-api-reference-query-creator-info",
+          "checked": "2026-11-19"
+        },
+        {
+          "publisher": "TikTok Business Help",
+          "title": "Video ad specifications",
+          "url": "https://ads.tiktok.com/help/article/video-ads-specifications",
           "checked": "2026-11-18"
         }
       ]
@@ -40,9 +61,10 @@
     {
       "id": "instagram-reels",
       "name": "Instagram Reels",
-      "maxSeconds": 1200,
+      "maxSeconds": null,
+      "recordMaxSeconds": 1200,
       "recommendedToNewAudiencesUpToSeconds": 180,
-      "rule": "Up to 20 minutes made in the app, and reels over 3 minutes are not recommended to new audiences; through the publishing API, 3 seconds to 15 minutes",
+      "rule": "Up to 20 minutes recorded and edited in the app (Instagram Help gives no separate figure for uploading a file), and reels over 3 minutes are not recommended to new audiences; through the publishing API, 3 seconds to 15 minutes",
       "apiMinSeconds": 3,
       "apiMaxSeconds": 900,
       "sources": [
@@ -50,13 +72,13 @@
           "publisher": "Instagram Help",
           "title": "Record a reel on Instagram (iPhone)",
           "url": "https://help.instagram.com/2720958398006062?cms_platform=iphone-app",
-          "checked": "2026-10-18"
+          "checked": "2026-11-19"
         },
         {
           "publisher": "Meta for Developers",
           "title": "Instagram Platform: IG User Media reference (Reel specifications)",
-          "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
-          "checked": "2026-11-18"
+          "url": "https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/media",
+          "checked": "2026-11-19"
         }
       ]
     },
@@ -72,13 +94,13 @@
           "publisher": "Meta Newsroom",
           "title": "Making it easier to create videos on Facebook (June 17, 2025): reels have no length or format restrictions",
           "url": "https://about.fb.com/news/2025/06/making-it-easier-create-videos-facebook/",
-          "checked": "2026-11-18"
+          "checked": "2026-11-19"
         },
         {
           "publisher": "Meta for Developers",
           "title": "Reels publishing for Pages (video specifications)",
-          "url": "https://developers.facebook.com/docs/video-api/guides/reels-publishing",
-          "checked": "2026-11-18"
+          "url": "https://developers.facebook.com/documentation/video-api/guides/reels-publishing",
+          "checked": "2026-11-19"
         }
       ]
     }

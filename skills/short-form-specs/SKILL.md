@@ -48,11 +48,12 @@ must read stay inside the box.
 ## Length
 
 - YouTube Shorts: square or vertical uploads up to 3 minutes.
-- Instagram Reels: up to 20 minutes made in the app; reels over 3 minutes are not recommended to new audiences. Through the
-  publishing API, 3 seconds to 15 minutes.
+- Instagram Reels: up to 20 minutes recorded and edited in the app; reels over 3 minutes are not recommended to new audiences.
+  Through the publishing API, 3 seconds to 15 minutes.
 - Facebook Reels: no length limit in the app; the Page Reels API takes 3 to 90 seconds.
-- TikTok: no single published figure. Its posting API returns each account's own maximum (`max_video_post_duration_sec`);
-  non-Spark In-Feed ads run up to 10 minutes.
+- TikTok: up to 60 minutes uploaded in the phone app, 30 minutes uploaded on the web, 10 minutes recorded in the app. Through
+  the posting API, 10 minutes from the Upload endpoint, and each account's own maximum (`max_video_post_duration_sec`) for Direct
+  Post.
 
 ## Script length
 

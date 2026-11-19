@@ -36,7 +36,7 @@
         {
           "publisher": "TikTok for Developers",
           "title": "Content Posting API: direct post reference",
-          "url": "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post",
+          "url": "https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post",
           "checked": "2026-10-18"
         }
       ]
@@ -54,7 +54,7 @@
         {
           "publisher": "Meta for Developers",
           "title": "Instagram Platform: IG User Media reference",
-          "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+          "url": "https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/media",
           "checked": "2026-11-18"
         },
         {
@@ -75,7 +75,7 @@
         {
           "publisher": "Meta for Developers",
           "title": "Reels publishing for Pages",
-          "url": "https://developers.facebook.com/docs/video-api/guides/reels-publishing",
+          "url": "https://developers.facebook.com/documentation/video-api/guides/reels-publishing",
           "checked": "2026-11-18"
         }
       ]
