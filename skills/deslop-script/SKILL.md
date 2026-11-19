@@ -18,7 +18,8 @@ Not for: writing a script from nothing (use `short-form-script`) or grading only
    creator wrote them? If they stay, report the habits and do not rewrite.
 2. If `scan.mjs` sits next to this file and Node is available, run it for a first pass:
    `node scan.mjs script.txt` (or `--json`). It catches the listed phrases, dashes, ellipses, emoji, instant answers, fragment
-   runs, pet words and explained endings. It cannot judge meaning, so read the script yourself as well.
+   runs, pet words, scroll-stoppers, bait and explained endings, marking each as a tell or as a check that is often fine. It
+   cannot judge meaning, so read the script yourself as well.
 3. Read the script as if hearing it once, out loud, and go through the checklist below. Quote every habit you find.
 4. Rewrite only the flagged lines. Say the plain thing each habit was standing in for. Keep every fact, name and number; never
    add a figure, quote or claim. If the creator clearly talks a certain way (they greet, they say "so"), keep it.
@@ -34,6 +35,7 @@ Not for: writing a script from nothing (use `short-form-script`) or grading only
 |---|---|---|
 | Talking about the video | "In today's video", "welcome back", "let's dive in", "without further ado", "stick around to the end" | Start with the first real sentence of the story |
 | Stock openings | "Have you ever wondered", "What if I told you", "Picture this", "In today's fast-paced world", "When it comes to" | Open on the strangest true detail, the number, or what someone was trying to do |
+| Scroll-stoppers and fake reveals | "Stop scrolling", "You've been doing this wrong your whole life", "Nobody is talking about this", "POV:" with no real point of view | Open on the thing itself; if it is surprising, it stops the scroll |
 | Slide-deck signposting | "First, let's look at... Second..." in a 40 second script | Cause and effect in order: this happened, so that happened |
 | Announcing the turn | "Here's the thing", "But here's the twist", "Now get this", "Let that sink in", "And that's when everything changed" | Just tell the turn; if it is good, it lands on its own |
 | Fake contrast | "It's not a diet, it's a lifestyle", "Not because he was lazy, but because he was tired" | Say what the thing is. Keep a contrast only if someone in the story really believed the first half |
@@ -48,7 +50,9 @@ Not for: writing a script from nothing (use `short-form-script`) or grading only
 | Pet words | actually, honestly, basically, really, on repeat | Cut the repeats that add nothing; keep the ones that carry meaning ("just enough gas to get home") |
 | Even beat | Every sentence the same short length | Let some sentences run and some stop short, as speech does |
 | Explained endings | "And that's why you should...", "So remember...", "In conclusion", "Ultimately, small habits...", "What would you do?" | End on the last thing that happens, or the one useful line |
-| Generic calls to action | "Like and subscribe", "Follow for more", "Comment below" | One specific ask that fits this video, or none |
+| Generic calls to action and bait | "Like and subscribe", "Follow for more", "Comment WORD below", "Tag a friend", "Save this", "Link in bio" | One specific ask that fits this video, or none |
+| Narrating the picture | "As you can see here", "Look at this" | Let the picture show it; say what the picture cannot |
+| Hard to say out loud | brackets, slashes ("and/or"), "e.g.", "etc.", sentences of 30 words or more | Words a person says in one breath |
 | Punctuation for drama | dashes, ellipses, "Here's the truth:", semicolons, emoji in spoken lines | Full stops and commas; the voice does the pausing |
 | Leftovers | `**bold**`, `### headings`, "[Hook]", "Voiceover:", "Sure, here's your script" | Remove everything that is not said or shown |
 
