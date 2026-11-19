@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node test.mjs && node bin-test.mjs",
+    "test": "node test.mjs && node bin-test.mjs && node scan-test.mjs",
     "check-live": "node scripts/check-live.mjs"
   },
   "engines": {

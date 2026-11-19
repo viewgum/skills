@@ -10,7 +10,7 @@
     {
       "name": "viewgum",
       "source": "./",
-      "description": "The ViewGum connector and seven skills: viewgum-shorts (make, edit and export shorts, pricing first) and six that need no account: short-form-specs, hook-check, short-form-script, post-copy, upload-preflight and ai-label-check.",
+      "description": "The ViewGum connector and eight skills: viewgum-shorts (make, edit and export shorts, pricing first) and seven that need no account: deslop-script, hook-check, short-form-script, post-copy, upload-preflight, ai-label-check and short-form-specs.",
       "homepage": "https://viewgum.com/agents",
       "license": "MIT AND CC-BY-4.0"
     }

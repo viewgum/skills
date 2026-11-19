@@ -59,7 +59,8 @@ Hook score out of 100 = 100 x (0.8 x (H1 to H5 total / 10) + 0.2 x ((D2 + D4h) /
 | D4h Hook text | 2 | 6 words | |
 
 ### Rewrites
-1. **Say:** ... **On screen:** ... **Visual:** ... (score 84: H1 2, H2 2, H3 1, H4 2, H5 1; D2 2, D4h 2)
+1. **Say:** ... **On screen:** ... **Visual:** ... (score 84: H1 2, H2 2, H3 1, H4 2, H5 1; D2 2, D4h 2; lower than the original on H5,
+   1 against 2)
 2. ...
 3. ...
 ```

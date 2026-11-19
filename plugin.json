@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "viewgum",
   "version": "1.1.0",
-  "description": "Make, edit and export vertical short videos for TikTok, Reels and Shorts through ViewGum's MCP connector, plus free skills for any short video: hook checks, scripts sized to a length, post copy, upload checks, AI label rules, safe zones and limits.",
+  "description": "Make, edit and export vertical short videos for TikTok, Reels and Shorts through ViewGum's MCP connector, plus free skills for any short video: script deslopping, hook checks, scripts sized to a length, post copy, upload checks, AI label rules, safe zones and limits.",
   "author": {
     "name": "ViewGum",
     "email": "support@viewgum.com",

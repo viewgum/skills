@@ -17,20 +17,22 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 1. Clarify scope only if needed. Defaults: all four apps, and the rules for uploading in each app (`--route app`). For TikTok's
    web upload use `--route web`. If the user posts through a scheduler or their own code, use the publishing API rules
    (`--api`), which are stricter for Facebook Reels and Instagram.
-2. Check that `ffprobe` exists (`ffprobe -version`). If not, tell the user how to install FFmpeg for their system and stop.
+2. Check the tools: `ffprobe -version` (FFmpeg), `node -v` (18 or newer) and `npx --version`. The first run downloads the
+   checker from GitHub, so it also needs network access. If something is missing, say which, how to install it, and stop.
 3. Run it, as JSON so you can read every row:
    `npx -y github:viewgum/shortform-preflight <file> --json` (add `--api`, or `--platform tiktok,youtube-shorts`, as needed).
    Exit code 0 means no check failed; 1 means a check failed or a required figure could not be read (the app shows as
    incomplete; say which measurement is missing); 2 means bad input.
 4. For each fail, and each warn the user is likely to hit, give the cause in one line, the source the row cites, and one fix.
    Common fixes (adjust paths and keep the rest of the file as it is):
-   - Frame rate outside a range: `ffmpeg -i in.mp4 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a copy out.mp4`
-   - Codec, chroma or profile refused: `ffmpeg -i in.mp4 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k out.mp4`
+   - Frame rate outside a range: `ffmpeg -i in.mp4 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a copy -movflags +faststart -use_editlist 0 out.mp4`
+   - Codec, chroma or profile refused: `ffmpeg -i in.mp4 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart -use_editlist 0 out.mp4`
    - Moov atom at the end, or an edit list (Instagram's API refuses both): `ffmpeg -i in.mp4 -c copy -movflags +faststart -use_editlist 0 out.mp4`
    - Audio sample rate, channels or bitrate (the Facebook Reels API lists 48 kHz stereo, 128 kbps or more; an encoder set to exactly
-     128k often averages a little under): `ffmpeg -i in.mp4 -c:v copy -c:a aac -b:a 192k -ar 48000 -ac 2 out.mp4`
-   - Too long: cut it, `ffmpeg -i in.mp4 -t 90 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k out.mp4` (set `-t` to
-     the limit, or a little under it).
+     128k often averages a little under): `ffmpeg -i in.mp4 -c:v copy -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart -use_editlist 0 out.mp4`
+   - Too long: cut it, `ffmpeg -i in.mp4 -t 89.9 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart -use_editlist 0 out.mp4`
+     (set `-t` a little under the limit: the cut can run a frame long).
+   - Several rows at once: combine the options in one re-encode rather than chaining passes, as in the example run.
    - Too large: lower the quality setting (a higher `-crf`) rather than the resolution.
    - Not 9:16: pad or crop to 1080 x 1920 only if the user wants it; say what will be lost.
 5. After a fix, run the checker again on the new file and show that the row now passes.
@@ -43,12 +45,12 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 
 | App | Result | Failing or warning rows |
 |---|---|---|
-| Facebook Reels | fail | frame rate 23.976 (needs 24 to 60); length 95 s (API takes 3 to 90 s) |
-| Instagram Reels | fail | moov atom after the media (the API requires it at the front) |
+| Facebook Reels | fail | length 95 s (API takes 3 to 90 s); frame rate 23.976 (needs 24 to 60); 44.1 kHz and mono (48 kHz stereo listed, warn) |
+| Instagram Reels | fail | edit list present (none allowed); moov atom after the media (must be at the front) |
 
-### Fixes
-1. Frame rate: `ffmpeg ...` (source: Meta, Reels Publishing API)
-2. Length: `ffmpeg ...`
+### Fix
+One re-encode for all rows: `ffmpeg -i demo.mp4 -t 89.9 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart -use_editlist 0 fixed.mp4`
+(sources: Meta for Developers, Reels Publishing API and IG User Media)
 
 **After the fix:** no fails.
 ```

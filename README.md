@@ -6,6 +6,7 @@ Agent skills and an MCP connector for vertical short video, for Claude Code, Cod
 |---|---|---|
 | [`viewgum-shorts`](skills/viewgum-shorts/SKILL.md) | Make, edit and export finished vertical shorts through ViewGum's connector: price first, ask before any paid step, wait for the short to finish, edit by plain words or exact timeline changes, export the MP4 with post copy for each app | The connector, a paid ViewGum plan and credits |
 | [`short-form-specs`](skills/short-form-specs/SKILL.md) | Safe zones in pixels for TikTok, YouTube Shorts, Instagram Reels and Facebook Reels, length and caption limits, and how many words fit a length, for any 9:16 video the agent is building (Remotion, HyperFrames, ffmpeg or an editor) | Nothing |
+| [`deslop-script`](skills/deslop-script/SKILL.md) | Find and fix the habits that make a script sound machine-written (filler openers, announced twists, fake contrasts, hype words, stock phrases, explained endings, generic calls to action), with a zero-dependency scanner and a before and after count | Nothing; Node 18 or newer for the optional scanner |
 | [`hook-check`](skills/hook-check/SKILL.md) | Grade the opening line of a short on five criteria from an open benchmark rubric plus two counted checks, then write three rewrites, each scored | Nothing |
 | [`short-form-script`](skills/short-form-script/SKILL.md) | Write or fix a voiceover script sized to a length, with on-screen text and a visual for every line, self-checked for length, a fast start, short sentences and unsourced figures | Nothing |
 | [`post-copy`](skills/post-copy/SKILL.md) | Titles, captions and hashtags for each app from what the video says, every field counted against the app's published limit | Nothing |
@@ -19,7 +20,7 @@ where each one has its source and the date it was read.
 
 ### Claude Code
 
-The plugin adds the connector and all seven skills:
+The plugin adds the connector and all eight skills:
 
 ```sh
 claude plugin marketplace add viewgum/skills
@@ -67,13 +68,16 @@ The connector's address is `https://viewgum.com/mcp`. Steps for each assistant a
 
 ### From a terminal
 
-Open ViewGum's Make stage with an idea filled in (making a short needs a ViewGum account), or add the connector to an agent,
-with no install:
+Check a script, open ViewGum's Make stage with an idea filled in (making a short needs a ViewGum account), or add the
+connector to an agent, with no install:
 
 ```sh
+npx -y github:viewgum/skills deslop my-script.txt
 npx -y github:viewgum/skills make "How a hippo holds its breath" --look build3d
 npx -y github:viewgum/skills connect codex
 ```
+
+`deslop` lists the habits that make a script sound machine-written, line by line, with no account and nothing sent anywhere.
 
 `connect` prints the steps for claude, codex, gemini, cursor or vscode; `--run` runs them for claude and codex.
 

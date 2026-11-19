@@ -28,7 +28,9 @@ Not for: the script itself (use `short-form-script`) or the opening line (use `h
 
 4. Hashtags: 3 to 5 that describe the topic, the format or the audience, the same set or close to it on every app. No
    tags unrelated to the video.
-5. Count the characters of every field and show the counts. Cut anything over a limit; never rely on the app to cut it.
+5. Count the characters of every field and show the counts. With a code tool, count exactly: in JavaScript, `s.length` gives
+   UTF-16 code units (TikTok's count) and `Buffer.byteLength(s, "utf8")` gives bytes (YouTube's Data API). Without one, stay at
+   least 10% under each limit and mark the counts as approximate. Cut anything over a limit; never rely on the app to cut it.
 
 ## Output format
 
@@ -58,5 +60,5 @@ Not for: the script itself (use `short-form-script`) or the opening line (use `h
 - Do not promise what the video does not show. A title that misleads costs the viewer's trust and the watch time.
 - Do not stuff hashtags. Use a few that describe the video; on Instagram more than 5 is not allowed in the app, and on YouTube more than 60 voids them all.
 - Do not copy the same caption into the YouTube title: the title has its own limit and shows differently.
-- Do not count characters by eye. Count them, and remember most emoji count as two or more UTF-16 code units in TikTok's count.
+- Do not count characters by eye when you can count them. Most emoji count as two or more UTF-16 code units in TikTok's count.
 - Do not invent facts, numbers or quotes to make the caption stronger. Use only what the video says.

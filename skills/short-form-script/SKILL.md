@@ -26,9 +26,11 @@ Not for: grading only the opening line (use `hook-check`), or titles, captions a
    source the user has not given, write around it or mark it [check].
 5. Check before you answer, and fix anything under 2:
    - D1 Length: 2 if spoken words (hook, lines and close) are within 15% of the target, 1 within 30%, else 0.
-   - D2 Fast start: 0 if the hook opens with a greeting or filler; else 2 if the first sentence has 15 words or fewer, 1 if 20.
-   - D3 Short sentences: 2 if the mean sentence is 14 words or fewer and none is over 25, 1 if the mean is 18 or fewer.
-   - D4 On-screen text: 2 if there is hook text and no text is over 7 words, 1 if none is over 10.
+   - D2 Fast start: 0 if the hook opens with a greeting or filler ("hey", "hi", "hello", "welcome", "so", "today", "okay",
+     "ok", "alright", "guys", "in this video"); else 2 if the first sentence has 15 words or fewer, 1 if 20 or fewer, else 0.
+   - D3 Short sentences: 2 if the mean sentence is 14 words or fewer and none is over 25; else 1 if the mean is 18 or fewer
+     (even with a sentence over 25); else 0.
+   - D4 On-screen text: 0 if there is no hook text; else 2 if no on-screen text is over 7 words, 1 if none is over 10, else 0.
    - D5 Figures: in the spoken lines, percents, money and numbers over 10 written in digits that the user did not give: 2 if
      none, 1 if one, 0 if more. Check figures written in words yourself; the benchmark's check does not read them.
 6. Report the word count against the target and any [check] marks.

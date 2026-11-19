@@ -1,6 +1,6 @@
 {
   "name": "viewgum",
-  "description": "Make, edit and export vertical short videos for TikTok, Reels and Shorts through ViewGum's MCP connector, plus free skills for any short video: hook checks, scripts sized to a length, post copy, upload checks, AI label rules, safe zones and limits.",
+  "description": "Make, edit and export vertical short videos for TikTok, Reels and Shorts through ViewGum's MCP connector, plus free skills for any short video: script deslopping, hook checks, scripts sized to a length, post copy, upload checks, AI label rules, safe zones and limits.",
   "version": "1.1.0",
   "author": {
     "name": "ViewGum",
