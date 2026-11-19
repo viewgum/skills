@@ -16,7 +16,9 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 
 1. Clarify scope only if needed. Defaults: all four apps, and the rules for uploading in each app (`--route app`). For TikTok's
    web upload use `--route web`. If the user posts through a scheduler or their own code, use the publishing API rules
-   (`--api`), which are stricter for Facebook Reels and Instagram.
+   (`--api`), which are stricter for Facebook Reels and Instagram. For TikTok's Direct Post, pass the account's limit
+   (`max_video_post_duration_sec` from TikTok's creator info) as `--tiktok-endpoint direct --tiktok-max-seconds <n>`; without
+   it, say the length is unverified.
 2. Check the tools: `ffprobe -version` (FFmpeg), `node -v` (18 or newer) and `npx --version`. The first run downloads the
    checker from GitHub, so it also needs network access. If something is missing, say which, how to install it, and stop.
 3. Run it, as JSON so you can read every row:
@@ -33,6 +35,9 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
    - Too long: cut it, `ffmpeg -i in.mp4 -t 89.9 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart -use_editlist 0 out.mp4`
      (set `-t` a little under the limit: the cut can run a frame long).
    - Several rows at once: combine the options in one re-encode rather than chaining passes, as in the example run.
+   - Every re-encode: add `-g 90` at 30 fps (`-g 72` at 24) so keyframes come every 3 seconds; Facebook's API asks for closed
+     groups of pictures 2 to 5 seconds long, which the checker cannot test. Check with
+     `ffprobe -v error -select_streams v -skip_frame nokey -show_entries frame=pts_time -of csv=p=0 out.mp4`.
    - Too large: lower the quality setting (a higher `-crf`) rather than the resolution.
    - Not 9:16: pad or crop to 1080 x 1920 only if the user wants it; say what will be lost.
 5. After a fix, run the checker again on the new file and show that the row now passes.
@@ -49,7 +54,7 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 | Instagram Reels | fail | edit list present (none allowed); moov atom after the media (must be at the front) |
 
 ### Fix
-One re-encode for all rows: `ffmpeg -i demo.mp4 -t 89.9 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart -use_editlist 0 fixed.mp4`
+One re-encode for all rows: `ffmpeg -i demo.mp4 -t 89.9 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -ac 2 -g 90 -movflags +faststart -use_editlist 0 fixed.mp4`
 (sources: Meta for Developers, Reels Publishing API and IG User Media)
 
 **After the fix:** no fails.

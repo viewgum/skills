@@ -5,10 +5,10 @@ description: Use when the user wants a TikTok, Short or Reel script to stop soun
 
 # Deslop a script
 
-People scroll past narration that sounds generated, and they can tell within a line or two. The giveaways are habits, not
-topics: an opening that talks about the video, a twist announced before it happens, a contrast with a view nobody held, words
-of size where a fact should be, an ending that explains the point. This skill finds those habits in a script, shows each one,
-and fixes only the lines that have them. The facts, names, numbers and the creator's own way of talking stay as they are.
+Some habits make narration sound generated when it is read aloud: an opening that talks about the video, a twist announced
+before it happens, a contrast with a view nobody held, words of size where a fact should be, an ending that explains the
+point. This skill helps an editor hear them. It finds each habit in a script, shows it, and fixes only the lines that have it.
+The facts, names, numbers, quotations and the creator's own way of talking stay as they are.
 
 Not for: writing a script from nothing (use `short-form-script`) or grading only the first line (use `hook-check`).
 
@@ -22,8 +22,9 @@ Not for: writing a script from nothing (use `short-form-script`) or grading only
 3. Read the script as if hearing it once, out loud, and go through the checklist below. Quote every habit you find.
 4. Rewrite only the flagged lines. Say the plain thing each habit was standing in for. Keep every fact, name and number; never
    add a figure, quote or claim. If the creator clearly talks a certain way (they greet, they say "so"), keep it.
-5. Read the result once more for new habits the rewrite brought in, and for length: it should be about as long as before or
-   shorter, never padded.
+5. Read the result once more for new habits the rewrite brought in, and for length. Report the runtime before and after at
+   about 165 spoken words a minute (the scanner prints it). If the video has a set length or visuals timed to the words, say
+   how far the new runtime is from it and that the edit needs retiming; never pad to fill the gap.
 6. Optional scoring: count the habits before and after, and give the count per 100 spoken words. Say that the count measures
    habits, not quality; a script can have none and still be dull.
 
@@ -43,8 +44,8 @@ Not for: writing a script from nothing (use `short-form-script`) or grading only
 | Telling the feeling | shocking, heartbreaking, you won't believe | Say what happened and let the viewer react |
 | Stock phrasing | little did they know, the rest is history, a testament to, in a world where, unlock, delve, intricate, underscore, showcase, pivotal, crucial, elevate, seamless | The plain words a person would use |
 | Words for the page | moreover, furthermore, utilize, numerous, individuals, in order to | Spoken words: also, use, many, people, to |
-| Vague sources | "Studies show", "experts say" | Name the source, or say it as your own claim, or cut it |
-| Pet words | actually, honestly, just, basically, really, on repeat | Keep the first, cut the rest |
+| Vague sources | "Studies show", "experts say" | Ask for the source and name it; if there is none, flag the claim. Never turn it into the creator's own claim |
+| Pet words | actually, honestly, basically, really, on repeat | Cut the repeats that add nothing; keep the ones that carry meaning ("just enough gas to get home") |
 | Even beat | Every sentence the same short length | Let some sentences run and some stop short, as speech does |
 | Explained endings | "And that's why you should...", "So remember...", "In conclusion", "Ultimately, small habits...", "What would you do?" | End on the last thing that happens, or the one useful line |
 | Generic calls to action | "Like and subscribe", "Follow for more", "Comment below" | One specific ask that fits this video, or none |
@@ -91,6 +92,7 @@ generated: people write these too.
 - Do not swap one stock phrase for its cousin ("here's the thing" for "here's the deal"). Say the plain thing it stood for.
 - Do not flatten the creator's real voice. A greeting or a pet phrase that is theirs on every video stays.
 - Do not fix facts by rewriting. If a claim looks wrong, flag it; changing a number silently is worse than a slop word.
+- Do not touch quotations. Words someone in the story said stay exactly as they were said.
 - Do not pad to make up length after cuts. Shorter and clearer is the goal.
 - Do not trust the scanner alone. It misses meaning (a fake contrast in unusual words) and flags some fine lines (a real list
   of three). Read every flag.

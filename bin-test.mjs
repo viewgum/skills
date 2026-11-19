@@ -16,6 +16,9 @@ assert.equal(url.searchParams.get("topic"), "How a hippo holds its breath");
 assert.equal(url.searchParams.get("look"), "build3d");
 assert.equal(url.searchParams.get("ref"), "github-cli");
 assert.equal(new URL(makeUrl("x".repeat(500))).searchParams.get("topic").length, 200);
+const wide = makeUrl("\u8336".repeat(60), { look: "build3d" });
+assert.ok(new URL(wide).pathname.length + new URL(wide).search.length <= 400, "the return path fits through sign-in");
+assert.equal(new URL(wide).searchParams.get("look"), "build3d");
 assert.throws(() => makeUrl("   "), /give the idea/);
 assert.throws(() => makeUrl("idea", { look: "Build 3D" }), /not a look id/);
 assert.equal(new URL(makeUrl("idea", { ref: "github-skills" })).searchParams.get("ref"), "github-skills");
@@ -41,7 +44,7 @@ try {
   assert.equal(main(["connect", "codex"], { run: (a) => ran.push(a) && 0 }), 0);
   assert.equal(ran.length, 0, "connect prints unless --run");
   assert.equal(main(["connect", "codex", "--run"], { run: (a) => { ran.push(a); return 0; } }), 0);
-  assert.equal(ran.length, 2);
+  assert.equal(ran.length, 1, "codex signs in while adding the server; login is the fallback");
   assert.equal(main(["connect", "claude", "--run"], { run: () => 1 }), 1);
   assert.equal(main(["connect", "nope"]), 2);
   assert.equal(main(["connect", "toString"]), 2, "inherited names are not clients");
@@ -51,6 +54,8 @@ try {
   assert.equal(main(["connect", "claude", "extra"]), 2, "one client only");
   assert.equal(main(["make", "-h"], { open: () => assert.fail("help must not open") }), 0);
   assert.equal(main(["-h"]), 0);
+  assert.equal(main(["make", "-p", "test"], { open: () => assert.fail("an unknown short flag must not open") }), 2);
+  assert.equal(main(["make", "--print", "--", "--not-a-flag idea"], { open: () => assert.fail("print only") }), 0);
   assert.equal(main(["make", "idea", "--look", "paper", "--look", "flat"], { open: () => true }), 2, "a repeated flag is refused");
   assert.equal(main(["connect", "codex", "--run"], { run: () => ({ status: null, missing: true }) }), 1);
   assert.equal(main(["deslop", join(scratch, "s.txt")]), 0);

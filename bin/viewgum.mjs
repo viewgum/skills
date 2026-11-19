@@ -11,17 +11,27 @@ export const MCP_URL = `${SITE}/mcp`;
 export const REF = "github-cli";
 const LOOK_SHAPE = /^[a-z][a-z0-9]{1,31}$/;
 const TOPIC_MAX = 200;
+const PATH_MAX = 400;
 
 /** The Make link: the idea as one plain line, an optional look id, and where the visit came from. */
 export function makeUrl(idea, { look, ref = REF } = {}) {
   const topic = String(idea ?? "").replace(/\s+/g, " ").trim();
   if (!topic) throw new Error("give the idea in quotes, for example: make \"How a hippo holds its breath\"");
   if (look !== undefined && !LOOK_SHAPE.test(look)) throw new Error(`"${look}" is not a look id (lowercase letters and digits)`);
-  const params = new URLSearchParams({ topic: Array.from(topic).slice(0, TOPIC_MAX).join("") });
-  if (look) params.set("look", look);
-  params.set("ref", ref);
-  return `${SITE}/shorts?${params.toString()}`;
+  // The sign-in keeps a return path of at most 512 characters; stay well under it, cutting the idea if it must.
+  const build = (chars) => {
+    const params = new URLSearchParams({ topic: chars.join("").trim() });
+    if (look) params.set("look", look);
+    params.set("ref", ref);
+    return `/shorts?${params.toString()}`;
+  };
+  const chars = Array.from(topic).slice(0, TOPIC_MAX);
+  while (build(chars).length > PATH_MAX && chars.length > 1) chars.pop();
+  return `${SITE}${build(chars)}`;
 }
+
+/** True when makeUrl had to shorten the idea to fit through sign-in. */
+export const shortened = (idea, url) => new URL(url).searchParams.get("topic") !== String(idea ?? "").replace(/\s+/g, " ").trim();
 
 export const cursorLink = () => `cursor://anysphere.cursor-deeplink/mcp/install?name=viewgum&config=${encodeURIComponent(Buffer.from(JSON.stringify({ url: MCP_URL })).toString("base64"))}`;
 export const vscodeLink = () => `vscode:mcp/install?${encodeURIComponent(JSON.stringify({ name: "viewgum", type: "http", url: MCP_URL }))}`;
@@ -29,7 +39,7 @@ export const vscodeLink = () => `vscode:mcp/install?${encodeURIComponent(JSON.st
 /** What `connect` does for each client: commands it can run, and what to tell the person. */
 export const CLIENTS = {
   claude: { name: "Claude Code", run: [["claude", "mcp", "add", "--transport", "http", "viewgum", MCP_URL]], then: "Inside Claude Code, run /mcp and sign in to ViewGum." },
-  codex: { name: "Codex CLI", run: [["codex", "mcp", "add", "viewgum", "--url", MCP_URL], ["codex", "mcp", "login", "viewgum"]], then: "The login step opens ViewGum's sign-in page." },
+  codex: { name: "Codex CLI", run: [["codex", "mcp", "add", "viewgum", "--url", MCP_URL]], then: "Codex opens ViewGum's sign-in page when it adds the server; if it did not, run: codex mcp login viewgum" },
   gemini: { name: "Gemini CLI", show: JSON.stringify({ mcpServers: { viewgum: { httpUrl: MCP_URL } } }, null, 2), then: "Add this to ~/.gemini/settings.json, then run /mcp auth viewgum to sign in." },
   cursor: { name: "Cursor", show: cursorLink(), then: "Open this link to add the server, then Settings, MCP, Connect to sign in." },
   vscode: { name: "VS Code", show: vscodeLink(), then: "Open this link to add the server; VS Code opens the sign-in page." },
@@ -62,7 +72,10 @@ function parse(rest, known) {
   const positional = [];
   for (let i = 0; i < rest.length; i++) {
     const arg = rest[i];
+    if (arg === "--") { positional.push(...rest.slice(i + 1)); break; }
     if (arg === "-h" || arg === "--help") { flags.help = true; continue; }
+    if (arg === "-") { positional.push(arg); continue; }
+    if (/^-[^-]/.test(arg)) throw new Error(`unknown option ${arg}`);
     if (!arg.startsWith("--")) { positional.push(arg); continue; }
     const name = arg.slice(2);
     if (!(name in known)) throw new Error(`unknown option ${arg}`);
@@ -101,7 +114,9 @@ export function main(argv, { open = openInBrowser, run = runFixed } = {}) {
     if (command === "make") {
       const { flags, positional } = parse(rest, { look: "value", print: "flag" });
       if (flags.help) { console.log(HELP); return 0; }
-      const url = makeUrl(positional.join(" "), { look: flags.look });
+      const idea = positional.join(" ");
+      const url = makeUrl(idea, { look: flags.look });
+      if (shortened(idea, url)) console.error("The idea was shortened to fit through sign-in; you can finish it on the Make page.");
       console.log(url);
       if (!flags.print && !open(url)) console.log("Open the link above in your browser.");
       return 0;

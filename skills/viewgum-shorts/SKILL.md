@@ -10,7 +10,7 @@ The ViewGum connector (https://viewgum.com/mcp) must be connected first; https:/
 ## Work this way
 
 1. If the person has not picked a look, call list_formats and offer two or three styles in plain words, plus the writer models when they care which model writes.
-2. Call quote_short with the topic, the style or format, the length in seconds if they asked for one, and the writer if one was chosen. Tell the person the credits it costs and ask before going on. Never call a paid tool without a yes.
+2. Call quote_short with the topic, the style or format, the length in seconds if they asked for one, and the writer if one was chosen. Tell the person the credits it costs and ask before going on. If the quote is a range, tell them the make can charge up to the top of it. Never call a paid tool without a yes.
 3. Call make_short with the quote_id. Then follow it with get_short and wait_seconds (25 is safe), telling the person the step it is on. Do not call get_short in a fast loop.
 4. When it is ready, show the title and the script. For changes, call quote_edit with their words, show the planned steps and the price, and call edit_short only after a yes.
 5. To get the video file, call quote_export, ask, then export_short, then get_short until the export is done; give the person the download link and the post copy for each platform.

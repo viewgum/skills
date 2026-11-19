@@ -24,8 +24,8 @@ Not for: copyright, music rights or ad approval beyond the label.
    an animation; Meta covers realistic-sounding audio on its own. When in doubt, say the label is the safe choice and why.
 4. Some uses are not allowed even with a label, for example making a real person appear to endorse something or say what they
    did not, to mislead. If the video does that, say so and stop; a label does not fix it.
-5. If the video is a TikTok ad, the ads policy applies instead: completely AI-generated images, video or audio, and AI voice
-   cloning of the main subject, need TikTok's AIGC label or a clear disclaimer, caption, watermark or sticker of the advertiser's
+5. If the video is a TikTok ad, the ads policy applies instead: completely AI-generated images, video or audio, AI voice cloning of
+   the main subject, and edits that make the main subject appear to do something they never did (a dance, for example), need TikTok's AIGC label or a clear disclaimer, caption, watermark or sticker of the advertiser's
    own; undisclosed AI content gets the ad rejected or restricted (TikTok Ads policy, misleading and false content, updated
    November 2026: https://ads.tiktok.com/resources/help/article/tiktok-ads-policy-misleading-and-false-content). For other
    apps' ads, say their ad policies apply and were not read here.
@@ -35,7 +35,7 @@ Not for: copyright, music rights or ad approval beyond the label.
 
 | App | When a label is asked for | Not needed for | Source |
 |---|---|---|---|
-| TikTok | "AI-generated or significantly edited content that shows realistic-looking scenes or people". Unlabelled content "may be removed, restricted, or labeled". | Content that does not look realistic. The rule names scenes and people; for a realistic AI voice over a cartoon, labelling is the safe choice. | TikTok Community Guidelines, integrity and authenticity (effective 2026-09-24, read 2026-11-19): https://www.tiktok.com/community-guidelines/en/integrity-authenticity |
+| TikTok | "AI-generated or significantly edited content that shows realistic-looking scenes or people". Unlabelled content "may be removed, restricted, or labeled". | Content that does not look realistic. For a voice, ask whose it is: a voice that imitates a real person needs a label (and that person's consent); for a generic synthetic voice over a cartoon, the rule names scenes and people, so say a label is the safe choice. | TikTok Community Guidelines, integrity and authenticity (effective 2026-09-24, read 2026-11-19): https://www.tiktok.com/community-guidelines/en/integrity-authenticity |
 | YouTube | "AI-generated or altered content that seems realistic", for example a real person made to say or do something they did not, a realistic scene that did not happen, or AI music that is the main focus of the video. Repeated failure can bring a label, removal or penalties. | Non-realistic content; minor edits such as help with an outline or script, captions, or cloning your own voice for a voiceover or dub | YouTube Help, disclosing GenAI content (read 2026-11-19): https://support.google.com/youtube/answer/14328491 |
 | Instagram and Facebook | Organic posts with "a photorealistic video or realistic-sounding audio that was digitally created or altered" (either one is enough); penalties possible | Still images (Meta labels the ones it detects; a video made of photorealistic AI images is still a video), and video that is neither photorealistic nor carries realistic-sounding audio. | Meta newsroom, February 2024 (the rule, read 2026-11-19): https://about.fb.com/news/2024/02/labeling-ai-generated-images-on-facebook-instagram-and-threads/ and April 2024 (the "AI info" label): https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/ |
 

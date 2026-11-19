@@ -24,7 +24,8 @@ Not for: grading only the opening line (use `hook-check`), or titles, captions a
    summary.
 4. Use only facts the user gave or facts you are sure of. No invented statistics, quotes or testimonials. If a claim needs a
    source the user has not given, write around it or mark it [check].
-5. Check before you answer, and fix anything under 2:
+5. Check before you answer, and fix anything under 2 (a length under 2 is fine only when you chose a slower pace on purpose
+   in step 2 and said so):
    - D1 Length: 2 if spoken words (hook, lines and close) are within 15% of the target, 1 within 30%, else 0.
    - D2 Fast start: 0 if the hook opens with a greeting or filler ("hey", "hi", "hello", "welcome", "so", "today", "okay",
      "ok", "alright", "guys", "in this video"); else 2 if the first sentence has 15 words or fewer, 1 if 20 or fewer, else 0.

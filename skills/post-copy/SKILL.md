@@ -21,7 +21,7 @@ Not for: the script itself (use `short-form-script`) or the opening line (use `h
 
 | App | Fields and limits, with where each figure applies |
 |---|---|
-| YouTube Shorts | Title up to 100 characters. Description up to 5,000 characters in YouTube Studio (the Data API counts 5,000 bytes, so accented letters and emoji use more). A video with more than 60 hashtags has all of them ignored. |
+| YouTube Shorts | Title up to 100 characters; through the Data API, no `<` or `>` in the title or description (write "under $5", not "<$5"). Description up to 5,000 characters in YouTube Studio (the Data API counts 5,000 bytes, so accented letters and emoji use more). A video with more than 60 hashtags has all of them ignored. |
 | TikTok | Caption up to 2,200 UTF-16 code units through TikTok's Content Posting API; TikTok publishes no separate figure for the app. |
 | Instagram Reels | Caption up to 2,200 characters through Meta's publishing API. Up to 5 hashtags on a reel in the app (the API accepts 30). |
 | Facebook Reels | No caption limit found in Meta's Reels publishing documentation; through the Page Reels API a reel can also carry a title. |
