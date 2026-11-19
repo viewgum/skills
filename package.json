@@ -3,8 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node test.mjs",
+    "test": "node test.mjs && node bin-test.mjs",
     "check-live": "node scripts/check-live.mjs"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "viewgum": "bin/viewgum.mjs"
+  }
 }

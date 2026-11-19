@@ -1,6 +1,6 @@
 {
   "name": "viewgum",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Make, edit and export vertical short videos for TikTok, Reels and Shorts through ViewGum's MCP connector, plus safe zones, length and caption limits for any 9:16 video.",
   "mcpServers": {
     "viewgum": {

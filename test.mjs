@@ -7,7 +7,7 @@ const json = (p) => JSON.parse(read(p));
 const MCP_URL = "https://viewgum.com/mcp";
 
 const skillDirs = readdirSync(new URL("./skills/", import.meta.url), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
-assert.deepEqual(skillDirs.sort(), ["short-form-specs", "viewgum-shorts"]);
+assert.deepEqual(skillDirs.sort(), ["ai-label-check", "hook-check", "post-copy", "short-form-script", "short-form-specs", "upload-preflight", "viewgum-shorts"]);
 for (const dir of skillDirs) {
   const text = read(`./skills/${dir}/SKILL.md`);
   const fm = /^---\n([\s\S]*?)\n---\n/.exec(text);
@@ -59,6 +59,6 @@ for (const [id, label] of [["tiktok", "TikTok"], ["youtube-shorts", "YouTube Sho
   assert.ok(specs.includes(`| ${label} | ${b.left}, ${b.top}, ${b.right}, ${b.bottom} |`), `${id} row disagrees with the data`);
 }
 
-const files = ["README.md", "skills/viewgum-shorts/SKILL.md", "skills/short-form-specs/SKILL.md", ".claude-plugin/plugin.json", ".claude-plugin/marketplace.json", "plugin.json", "gemini-extension.json"];
+const files = ["README.md", "skills/viewgum-shorts/SKILL.md", "skills/short-form-specs/SKILL.md", "skills/hook-check/SKILL.md", "skills/short-form-script/SKILL.md", "skills/post-copy/SKILL.md", "skills/upload-preflight/SKILL.md", "skills/ai-label-check/SKILL.md", "examples/hook-check/2026-11-19-cat-gifts.md", "examples/upload-preflight/2026-11-19-demo-clip.md", "bin/viewgum.mjs", ".claude-plugin/plugin.json", ".claude-plugin/marketplace.json", "plugin.json", "gemini-extension.json"];
 for (const f of files) assert.doesNotMatch(read(`./${f}`), /[\u2013\u2014]/, `${f} has a dash character`);
 console.log("ok");
