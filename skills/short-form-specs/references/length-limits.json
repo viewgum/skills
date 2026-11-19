@@ -20,7 +20,7 @@
       "id": "tiktok",
       "name": "TikTok",
       "maxSeconds": null,
-      "adsMaxSeconds": 600,
+      "nonSparkAdsMaxSeconds": 600,
       "rule": "No single limit in TikTok's ad or developer docs: the Content Posting API returns each account's own maximum (max_video_post_duration_sec), and non-Spark In-Feed ads run up to 10 minutes",
       "sources": [
         {

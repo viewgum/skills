@@ -28,7 +28,7 @@ When the person names one app, use that app's box (left, top, right, bottom):
 | YouTube Shorts | 48, 288, 888, 1248 | inside the right margin |
 | Instagram Reels, Facebook Reels | 65, 269, 1015, 1248 | not modelled: Meta gives only percentages |
 
-Reels also show icons on the lower right; for a Reels-only video, keep the lower right clear as for TikTok.
+Reels also show icons on the lower right that these figures do not model; keep text away from them.
 
 Centred captions on the all-apps box: up to 696 px wide above y = 840 (x 192 to 888), up to 480 px wide below it (x 300 to 780).
 A wider caption block goes above y = 840.
@@ -41,7 +41,7 @@ must read stay inside the box.
 - In code, read `references/safe-zones.json`: `clearOnEvery.box` and `platforms.<id>.box` hold `left`, `right`, `top`,
   `bottom`, and `railTop` and `railLeft` for the button column.
 - From a shell: `npx github:viewgum/short-form-video-specs check --rect x,y,width,height --size 1080x1920` exits 0 when the
-  rectangle is inside every app's safe zone, 1 with the reason when not, and 2 on bad input. `--platform tiktok` checks one app.
+  rectangle is inside every app's published safe zone, 1 with the reason when not, and 2 on bad input. `--platform tiktok` checks one app.
 - For a preview layer: `npx github:viewgum/short-form-video-specs overlay --platform all --size 1080x1920 > overlay.svg`. Use
   it while composing and keep it out of the final render.
 
@@ -56,14 +56,14 @@ must read stay inside the box.
 
 ## Script length
 
-Words that fit = seconds x words a minute / 60, at 150, 183 or 196 words a minute (measured rates, used as slow, normal and fast
-presets). 30 seconds holds 75 to 98 words and 60 seconds 150 to 196. A 3 second opening line holds 7 to 9 words. Use 150 when the
+Words that fit = seconds x words a minute / 60, at about 150, 183 or 196 words a minute (measured rates, used as slow, normal and
+fast presets; 196 is from two-person phone calls). 30 seconds holds 75 to 98 words and 60 seconds 150 to 196. A 3 second opening line holds 7 to 9 words. Use 150 when the
 voice is slow or the script is dense with numbers.
 
 ## Titles and captions
 
 - YouTube: title up to 100 characters, description up to 5,000; a video with more than 60 hashtags has all of them ignored.
-- TikTok: caption up to 2,200 through the Content Posting API (counted in UTF-16 units).
+- TikTok: caption up to 2,200 UTF-16 runes through the Content Posting API.
 - Instagram: caption up to 2,200 through Meta's publishing API; up to 5 hashtags on a post or reel in the app.
 - Facebook Reels: no caption limit in Meta's Reels documentation.
 
@@ -74,5 +74,5 @@ figure differs.
 
 ## Source
 
-The figures and `references/` come from https://github.com/viewgum/short-form-video-specs, CC BY 4.0, credit "ViewGum,
-viewgum.com".
+The figures and `references/` come from https://github.com/viewgum/short-form-video-specs under CC BY 4.0
+(https://creativecommons.org/licenses/by/4.0/), credit "ViewGum, viewgum.com".

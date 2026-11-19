@@ -4,7 +4,7 @@ Agent skills and an MCP connector for vertical short video, for Claude Code, Cod
 
 | Skill | What it teaches the agent | Needs |
 |---|---|---|
-| [`viewgum-shorts`](skills/viewgum-shorts/SKILL.md) | Make, edit and export finished vertical shorts through ViewGum's connector: price first, ask before any paid step, wait for a make to finish, edit by plain words or exact timeline changes, export the MP4 with post copy for each app | The connector, a ViewGum account and credits |
+| [`viewgum-shorts`](skills/viewgum-shorts/SKILL.md) | Make, edit and export finished vertical shorts through ViewGum's connector: price first, ask before any paid step, wait for the short to finish, edit by plain words or exact timeline changes, export the MP4 with post copy for each app | The connector and a paid ViewGum plan |
 | [`short-form-specs`](skills/short-form-specs/SKILL.md) | Safe zones in pixels for TikTok, YouTube Shorts, Instagram Reels and Facebook Reels, length and caption limits, and how many words fit a length, for any 9:16 video the agent is building (Remotion, HyperFrames, ffmpeg or an editor) | Nothing |
 
 The figures in `short-form-specs` come from [viewgum/short-form-video-specs](https://github.com/viewgum/short-form-video-specs),
@@ -44,7 +44,9 @@ npx skills add viewgum/skills
 
 ### Gemini CLI
 
-For Gemini CLI with an API key or a Code Assist plan (Google moved free and consumer users to Antigravity CLI on June 18, 2026):
+For Gemini CLI with a Gemini API key or an existing Code Assist plan. Google moved free and consumer users to Antigravity CLI on
+June 18, 2026 ([Google's notice](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/));
+Antigravity's steps are on [viewgum.com/agents](https://viewgum.com/agents).
 
 ```sh
 gemini extensions install https://github.com/viewgum/skills
@@ -76,12 +78,13 @@ With `short-form-specs`, in a video project:
 
 The connector never charges without a quote. `quote_short`, `quote_edit` and `quote_export` return a price and a `quote_id`;
 nothing is charged until `make_short`, `edit_short` or `export_short` runs with that id, and the same id never charges twice.
-When a make is quoted as a range, `make_short` holds the top of the range and charges what the make took. The skill tells the
-agent to show the price and wait for a yes. Asking for an edit quote saves the request and the plan in the short's chat; the edit
+When a make is quoted as a range, `make_short` holds the top of the range and charges what the make took, so the top is the most
+it can cost. The skill tells the agent to show the price and wait for a yes. Asking for an edit quote saves the request and the plan in the short's chat; the edit
 itself waits for `edit_short`.
 
-Exact timeline edits (`propose_edits`, `apply_edit_session`), reading a short and checking an export are free. Each connection
-has a daily limit the account owner can change in ViewGum's settings. Plans and credits: [viewgum.com/pricing](https://viewgum.com/pricing).
+Reading shorts and credits, exact timeline edits (`propose_edits`, `apply_edit_session`) and checking an export are free on any
+account with access; prices, makes, chat edits and exports need a paid plan. New connections start with a daily credit cap,
+which the account owner can change or remove in ViewGum's settings. Plans and credits: [viewgum.com/pricing](https://viewgum.com/pricing).
 
 ## What the connector does
 

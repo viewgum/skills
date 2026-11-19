@@ -5,7 +5,7 @@
     {
       "id": "slow",
       "wpm": 150,
-      "what": "the average rate of speech for US English speakers",
+      "what": "about the average rate of speech for US English speakers",
       "source": {
         "publisher": "National Center for Voice and Speech",
         "title": "Voice qualities (voice production tutorial)",
@@ -27,7 +27,7 @@
     {
       "id": "fast",
       "wpm": 196,
-      "what": "the overall rate in 2,438 recorded English phone conversations",
+      "what": "the overall rate in 2,438 recorded English phone conversations, both speakers' words over the call's length",
       "source": {
         "publisher": "Yuan, Liberman and Cieri (Interspeech 2006)",
         "title": "Towards an integrated understanding of speaking rate in conversation",

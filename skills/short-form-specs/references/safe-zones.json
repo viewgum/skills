@@ -7,7 +7,7 @@
   },
   "units": "Pixels on a 1080 x 1920 frame, x from the left edge, y from the top. Scale by width/1080 and height/1920 for other sizes.",
   "boxShape": "A box is the area the app leaves clear: left, right, top, bottom. From y = railTop down, a button column pushes the right edge in to x = railLeft. With no column, railTop equals bottom and railLeft equals right.",
-  "note": "Each app's box is the safe area in that app's own 9:16 ad guidance; the apps publish no pixel figures for regular posts. What an app covers changes with the placement, the caption's length, the language's reading direction and the app version, so treat these as the published presets, not a guarantee. clearOnEvery is the intersection of the four boxes here.",
+  "note": "Each app's box is the safe area in that app's own 9:16 ad guidance; the apps publish no pixel figures for regular posts. What an app covers changes with the placement, the caption's length, the reading direction and the app version, so these are the published presets, not a guarantee. clearOnEvery is the intersection of the four boxes here.",
   "platforms": {
     "tiktok": {
       "name": "TikTok",
@@ -63,7 +63,7 @@
           "height": 420
         }
       ],
-      "variant": "In-Feed, Standard, left to right"
+      "variant": "In-Feed, standard, left to right"
     },
     "youtube-shorts": {
       "name": "YouTube Shorts",
