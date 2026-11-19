@@ -33,14 +33,16 @@ export const CLIENTS = {
   vscode: { name: "VS Code", show: vscodeLink(), then: "Open this link to add the server; VS Code opens the sign-in page." },
 };
 
+// No shell on any system: cmd would split the link at each "&".
 function openInBrowser(url) {
-  const [cmd, args] = process.platform === "darwin" ? ["open", [url]] : process.platform === "win32" ? ["cmd", ["/c", "start", "", url]] : ["xdg-open", [url]];
-  return spawnSync(cmd, args, { stdio: "ignore" }).status === 0;
+  const [cmd, args] = process.platform === "darwin" ? ["open", [url]] : process.platform === "win32" ? ["rundll32", ["url.dll,FileProtocolHandler", url]] : ["xdg-open", [url]];
+  return spawnSync(cmd, args, { stdio: "ignore", shell: false }).status === 0;
 }
 
 const HELP = `Usage:
   viewgum make "<idea>" [--look <look id>] [--print]   open ViewGum's Make stage with the idea filled in
-  viewgum connect <claude|codex|gemini|cursor|vscode> [--run]   show (or, with --run, run) the steps to add the ViewGum connector
+  viewgum connect <claude|codex|gemini|cursor|vscode> [--run]   show the steps to add the ViewGum connector;
+                                                     --run runs them for claude and codex
 
 Making a short needs a ViewGum account; every paid step shows its price before it starts.
 Exit codes: 0 done, 1 a connect command failed, 2 bad input.`;
@@ -52,8 +54,13 @@ export function main(argv, { open = openInBrowser, run = (args) => spawnSync(arg
     const i = rest.indexOf(`--${name}`);
     return i >= 0 ? rest[i + 1] : undefined;
   };
+  const allowOnly = (names) => {
+    const bad = rest.find((arg) => arg.startsWith("--") && !names.includes(arg.slice(2)));
+    if (bad) throw new Error(`unknown option ${bad}`);
+  };
   try {
     if (command === "make") {
+      allowOnly(["look", "print"]);
       const look = value("look");
       if (rest.includes("--look") && (look === undefined || look.startsWith("--"))) throw new Error("--look needs a look id");
       const idea = rest.filter((arg, i) => !arg.startsWith("--") && rest[i - 1] !== "--look").join(" ");
@@ -63,8 +70,10 @@ export function main(argv, { open = openInBrowser, run = (args) => spawnSync(arg
       return 0;
     }
     if (command === "connect") {
-      const client = CLIENTS[rest[0]];
+      allowOnly(["run"]);
+      const client = Object.hasOwn(CLIENTS, rest[0]) ? CLIENTS[rest[0]] : null;
       if (!client) throw new Error(`connect needs one of: ${Object.keys(CLIENTS).join(", ")}`);
+      if (flag("run") && !client.run) throw new Error(`--run works for claude and codex; for ${rest[0]}, follow the steps it prints without --run`);
       if (client.run) {
         for (const args of client.run) {
           console.log(`$ ${args.join(" ")}`);

@@ -20,7 +20,8 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 2. Check that `ffprobe` exists (`ffprobe -version`). If not, tell the user how to install FFmpeg for their system and stop.
 3. Run it, as JSON so you can read every row:
    `npx -y github:viewgum/shortform-preflight <file> --json` (add `--api`, or `--platform tiktok,youtube-shorts`, as needed).
-   Exit code 0 means no check failed, 1 means one did, 2 means bad input.
+   Exit code 0 means no check failed; 1 means a check failed or a required figure could not be read (the app shows as
+   incomplete; say which measurement is missing); 2 means bad input.
 4. For each fail, and each warn the user is likely to hit, give the cause in one line, the source the row cites, and one fix.
    Common fixes (adjust paths and keep the rest of the file as it is):
    - Frame rate outside a range: `ffmpeg -i in.mp4 -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a copy out.mp4`
@@ -43,7 +44,7 @@ Not for: where text sits in the frame (use `short-form-specs`), or what the vide
 | App | Result | Failing or warning rows |
 |---|---|---|
 | Facebook Reels | fail | frame rate 23.976 (needs 24 to 60); length 95 s (API takes 3 to 90 s) |
-| Instagram Reels | warn | moov atom after the media |
+| Instagram Reels | fail | moov atom after the media (the API requires it at the front) |
 
 ### Fixes
 1. Frame rate: `ffmpeg ...` (source: Meta, Reels Publishing API)

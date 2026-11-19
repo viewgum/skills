@@ -5,8 +5,10 @@ description: Use when the user wants the opening line of a TikTok, YouTube Short
 
 # Hook check
 
-The first line decides whether a viewer stays. This skill grades a hook the way the open short-form script benchmark's judges do
-(https://github.com/viewgum/short-form-script-benchmark), so the grades mean the same thing every time, then rewrites it.
+The opening line is where most people decide to keep watching or swipe. This skill grades a hook against the five hook criteria
+and two checks of the open short-form script benchmark (https://github.com/viewgum/short-form-script-benchmark), then rewrites
+it. It is one grader's reading of a fixed rubric, not the benchmark's averaged and cross-checked score, and it does not predict
+views or retention.
 
 A hook here is three parts: the spoken first line, the text on screen during it, and what the viewer sees. Many people watch on
 mute, so the on-screen text has to work alone.
@@ -23,8 +25,8 @@ Not for: a whole script (use `short-form-script`), or titles and captions (use `
      else 0.
    - D4h Hook text: 2 if the on-screen text has 1 to 7 words, 1 if 8 to 10, else 0.
 3. Score H1 to H5, each 0, 1 or 2, against the anchors below. Quote the words that earn each 1 or 2. If nothing earns it, give 0.
-4. Write three new hooks, each with spoken line, on-screen text (7 words or fewer) and visual. Each must fix the lowest scores
-   and keep the topic and its facts. Never add a statistic, quote or claim the user did not give.
+4. Write three new hooks, each with spoken line, on-screen text (7 words or fewer) and visual. Each should lift the lowest
+   scores and keep the topic and its facts. Never add a statistic, quote or claim the user did not give.
 5. Score your three the same way and show the scores. If one scores lower than the original on any criterion, say so.
 
 ## Criteria
@@ -37,23 +39,27 @@ Not for: a whole script (use `short-form-script`), or titles and captions (use `
 | H4 | Promise of what is coming | no signal of what the end holds | an implied ending | a visible promise or mechanism in the first five seconds |
 | H5 | Hook on mute | no on-screen hook text, or text that makes no sense without sound | on-screen text that is long, busy or gives the answer away | 7 words or fewer that make sense on mute and hold back the answer |
 
-Hook score out of 100 = 100 x (0.8 x (H1 to H5 total / 10) + 0.2 x ((D2 + D4h) / 4)), rounded to a whole number.
+Hook score out of 100 = 100 x (0.8 x (H1 to H5 total / 10) + 0.2 x ((D2 + D4h) / 4)), which with whole grades is
+8 x (H1 + H2 + H3 + H4 + H5) + 5 x (D2 + D4h).
 
 ## Output format
 
 ```
-**Hook score:** 62 / 100
-**Weakest:** H2 (no gap), H5 (text gives the answer away)
+**Hook score:** 58 / 100
+**Weakest:** D2 (opens with a greeting), H2 (no gap)
 
 | Criterion | Score | Quote | Why |
 |---|---|---|---|
-| H1 Topic clarity | 2 | "..." | ... |
-...
-| D2 Fast start | 2 | 9 words, no greeting | |
-| D4h Hook text | 1 | 9 words | |
+| H1 Topic clarity | 1 | "..." | ... |
+| H2 Curiosity or stakes | 1 | "..." | ... |
+| H3 Relevance to the audience | 1 | "..." | ... |
+| H4 Promise of what is coming | 1 | "..." | ... |
+| H5 Hook on mute | 2 | "..." | ... |
+| D2 Fast start | 0 | opens with "Hey" | |
+| D4h Hook text | 2 | 6 words | |
 
 ### Rewrites
-1. **Say:** ... **On screen:** ... **Visual:** ... (score 86: H2 2, H5 2)
+1. **Say:** ... **On screen:** ... **Visual:** ... (score 84: H1 2, H2 2, H3 1, H4 2, H5 1; D2 2, D4h 2)
 2. ...
 3. ...
 ```

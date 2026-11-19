@@ -37,6 +37,9 @@ try {
   assert.equal(ran.length, 2);
   assert.equal(main(["connect", "claude", "--run"], { run: () => 1 }), 1);
   assert.equal(main(["connect", "nope"]), 2);
+  assert.equal(main(["connect", "toString"]), 2, "inherited names are not clients");
+  assert.equal(main(["connect", "cursor", "--run"]), 2, "--run only where there is something to run");
+  assert.equal(main(["make", "idea", "--prnt"], { open: () => assert.fail("a typo must not open the browser") }), 2);
   assert.equal(main(["frobnicate"]), 2);
   assert.equal(main([]), 2);
 } finally {

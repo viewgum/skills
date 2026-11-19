@@ -6,10 +6,10 @@ Agent skills and an MCP connector for vertical short video, for Claude Code, Cod
 |---|---|---|
 | [`viewgum-shorts`](skills/viewgum-shorts/SKILL.md) | Make, edit and export finished vertical shorts through ViewGum's connector: price first, ask before any paid step, wait for the short to finish, edit by plain words or exact timeline changes, export the MP4 with post copy for each app | The connector, a paid ViewGum plan and credits |
 | [`short-form-specs`](skills/short-form-specs/SKILL.md) | Safe zones in pixels for TikTok, YouTube Shorts, Instagram Reels and Facebook Reels, length and caption limits, and how many words fit a length, for any 9:16 video the agent is building (Remotion, HyperFrames, ffmpeg or an editor) | Nothing |
-| [`hook-check`](skills/hook-check/SKILL.md) | Grade the opening line of a short on five criteria from an open benchmark rubric plus two counted checks, then write three better hooks | Nothing |
+| [`hook-check`](skills/hook-check/SKILL.md) | Grade the opening line of a short on five criteria from an open benchmark rubric plus two counted checks, then write three rewrites, each scored | Nothing |
 | [`short-form-script`](skills/short-form-script/SKILL.md) | Write or fix a voiceover script sized to a length, with on-screen text and a visual for every line, self-checked for length, a fast start, short sentences and unsourced figures | Nothing |
 | [`post-copy`](skills/post-copy/SKILL.md) | Titles, captions and hashtags for each app from what the video says, every field counted against the app's published limit | Nothing |
-| [`upload-preflight`](skills/upload-preflight/SKILL.md) | Check a rendered file against each app's published upload limits with [shortform-preflight](https://github.com/viewgum/shortform-preflight) and give the FFmpeg fix for each failure | FFmpeg |
+| [`upload-preflight`](skills/upload-preflight/SKILL.md) | Check a rendered file against each app's published upload limits with [shortform-preflight](https://github.com/viewgum/shortform-preflight) and give the FFmpeg fix for each failure | Node 18 or newer and FFmpeg (the checker downloads from GitHub on first run) |
 | [`ai-label-check`](skills/ai-label-check/SKILL.md) | Whether a video made with AI needs an AI label on TikTok, YouTube, Instagram and Facebook, from each app's published rule, with the setting to use | Nothing |
 
 The figures in `short-form-specs` come from [viewgum/short-form-video-specs](https://github.com/viewgum/short-form-video-specs),
@@ -19,15 +19,15 @@ where each one has its source and the date it was read.
 
 ### Claude Code
 
-The plugin adds the connector and both skills:
+The plugin adds the connector and all seven skills:
 
 ```sh
 claude plugin marketplace add viewgum/skills
 claude plugin install viewgum@viewgum
 ```
 
-Then run `/mcp` in Claude Code and sign in to ViewGum. The skills show as `/viewgum:viewgum-shorts` and
-`/viewgum:short-form-specs`.
+Then run `/mcp` in Claude Code and sign in to ViewGum (only `viewgum-shorts` needs it). The skills show as
+`/viewgum:<skill>`, for example `/viewgum:viewgum-shorts` and `/viewgum:hook-check`.
 
 ### Skills only
 
@@ -67,14 +67,15 @@ The connector's address is `https://viewgum.com/mcp`. Steps for each assistant a
 
 ### From a terminal
 
-Open ViewGum's Make stage with an idea filled in, or add the connector to an agent, with no install:
+Open ViewGum's Make stage with an idea filled in (making a short needs a ViewGum account), or add the connector to an agent,
+with no install:
 
 ```sh
 npx -y github:viewgum/skills make "How a hippo holds its breath" --look build3d
 npx -y github:viewgum/skills connect codex
 ```
 
-`connect` prints the steps for claude, codex, gemini, cursor or vscode; add `--run` to run the claude or codex commands.
+`connect` prints the steps for claude, codex, gemini, cursor or vscode; `--run` runs them for claude and codex.
 
 ## Try it
 

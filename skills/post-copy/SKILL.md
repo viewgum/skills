@@ -19,12 +19,12 @@ Not for: the script itself (use `short-form-script`) or the opening line (use `h
    and the first line of each caption, where they show before the text is cut off in the feed.
 3. Write each app's fields within its limits:
 
-| App | Fields and limits |
+| App | Fields and limits, with where each figure applies |
 |---|---|
-| YouTube Shorts | Title up to 100 characters. Description up to 5,000. A video with more than 60 hashtags has all of them ignored. |
-| TikTok | Caption up to 2,200 characters (UTF-16 code units, as TikTok's posting API counts them). |
-| Instagram Reels | Caption up to 2,200 characters. Up to 5 hashtags on a reel in the app (Meta's publishing API accepts 30). |
-| Facebook Reels | No caption limit in Meta's Reels documentation. |
+| YouTube Shorts | Title up to 100 characters. Description up to 5,000 characters in YouTube Studio (the Data API counts 5,000 bytes, so accented letters and emoji use more). A video with more than 60 hashtags has all of them ignored. |
+| TikTok | Caption up to 2,200 UTF-16 code units through TikTok's Content Posting API; TikTok publishes no separate figure for the app. |
+| Instagram Reels | Caption up to 2,200 characters through Meta's publishing API. Up to 5 hashtags on a reel in the app (the API accepts 30). |
+| Facebook Reels | No caption limit found in Meta's Reels publishing documentation; through the Page Reels API a reel can also carry a title. |
 
 4. Hashtags: 3 to 5 that describe the topic, the format or the audience, the same set or close to it on every app. No
    tags unrelated to the video.
