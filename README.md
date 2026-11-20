@@ -16,6 +16,11 @@ Agent skills and an MCP connector for vertical short video, for Claude Code, Cod
 The figures in `short-form-specs` come from [viewgum/short-form-video-specs](https://github.com/viewgum/short-form-video-specs),
 where each one has its source and the date it was read.
 
+For small businesses, [viewgum/business-video-skills](https://github.com/viewgum/business-video-skills) has twelve more skills,
+one for each kind of business (contractors, restaurants, dentists, salons, real estate agents and more). Each plans a month of
+short videos and checks every line against sourced ad and claim rules for its industry. No account needed. With this
+marketplace added in Claude Code, run `claude plugin install business-video-skills@viewgum`.
+
 ## Install
 
 ### Claude Code

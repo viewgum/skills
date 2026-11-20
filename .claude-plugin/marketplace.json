@@ -5,7 +5,7 @@
     "email": "support@viewgum.com",
     "url": "https://viewgum.com"
   },
-  "description": "ViewGum's skills and MCP connector for making vertical short videos from an agent.",
+  "description": "ViewGum's skills and MCP connector for making vertical short videos from an agent, and free short video plans for small businesses.",
   "plugins": [
     {
       "name": "viewgum",
@@ -13,6 +13,16 @@
       "description": "The ViewGum connector and eight skills: viewgum-shorts (make, edit and export shorts, pricing first) and seven that need no account: deslop-script, hook-check, short-form-script, post-copy, upload-preflight, ai-label-check and short-form-specs.",
       "homepage": "https://viewgum.com/agents",
       "license": "MIT AND CC-BY-4.0"
+    },
+    {
+      "name": "business-video-skills",
+      "source": {
+        "source": "github",
+        "repo": "viewgum/business-video-skills"
+      },
+      "description": "Short video plans for twelve kinds of small business (15 ideas and a 30-day calendar), with a claim check against sourced ad and claim rules for each industry. No account needed.",
+      "homepage": "https://github.com/viewgum/business-video-skills",
+      "license": "CC-BY-4.0"
     }
   ]
 }
