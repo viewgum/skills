@@ -149,4 +149,4 @@ commands download tools, and the skills CLI has its own telemetry setting.
 
 ## License
 
-MIT. The JSON files in `skills/short-form-specs/references/` are CC BY 4.0, credit "ViewGum, viewgum.com". See [LICENSE](LICENSE).
+MIT. The JSON files in `skills/short-form-specs/references/` are CC BY 4.0, credit "ViewGum, viewgum.com". See [LICENSE](LICENSE), [LICENSE-DATA](LICENSE-DATA) and [NOTICE](NOTICE).

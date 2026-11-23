@@ -1,0 +1,11 @@
+Which license covers what
+
+Everything in this repository except the files named below: MIT License, see LICENSE.
+
+The JSON files in skills/short-form-specs/references/: Creative Commons Attribution 4.0 International (CC BY 4.0), see
+LICENSE-DATA or https://creativecommons.org/licenses/by/4.0/
+Credit "ViewGum, viewgum.com". Each figure lists its source; the all-apps box and word counts are calculated from them.
+
+Use of the ViewGum connector is governed by ViewGum's terms (https://viewgum.com/terms), not by these licenses. The ViewGum name
+and logo, including assets/icon.png, are trademarks of ViewGum and are not licensed here. Other names and logos in
+docs/connect-page.png belong to their owners.

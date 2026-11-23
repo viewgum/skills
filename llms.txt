@@ -1,0 +1,16 @@
+# ViewGum skills
+
+> Agent skills and an MCP connector for vertical short video, for Claude Code, Codex, Gemini CLI and other agents that read
+> skills. Seven skills work with no account (specs, script writing and cleanup, hook grading, post copy, upload checks, AI
+> labels); viewgum-shorts makes, edits and exports finished shorts through ViewGum's connector, which needs a paid ViewGum plan.
+
+- [README](https://github.com/viewgum/skills/blob/main/README.md): what each skill does and how to install it in each agent
+- [skills/](https://github.com/viewgum/skills/tree/main/skills): one folder per skill, each with a SKILL.md
+- [.mcp.json](https://github.com/viewgum/skills/blob/main/.mcp.json): the connector, https://viewgum.com/mcp (streamable HTTP, OAuth sign-in)
+
+Install: npx skills add viewgum/skills, or claude plugin marketplace add viewgum/skills
+
+## Related
+
+- [Connect an AI assistant](https://viewgum.com/agents): steps for ChatGPT, Claude, Gemini, Grok, Codex, Cursor and others
+- [business-video-skills](https://github.com/viewgum/business-video-skills): video plans and ad rules for small businesses by industry

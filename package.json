@@ -2,6 +2,26 @@
   "name": "viewgum-skills",
   "private": true,
   "type": "module",
+  "description": "Agent skills and an MCP connector for vertical short video: specs, scripts, hooks, post copy, upload checks and AI labels for TikTok, YouTube Shorts and Reels.",
+  "license": "(MIT AND CC-BY-4.0)",
+  "author": "ViewGum (https://viewgum.com)",
+  "homepage": "https://github.com/viewgum/skills#readme",
+  "bugs": "https://github.com/viewgum/skills/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viewgum/skills.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "mcp",
+    "short-form-video",
+    "tiktok",
+    "youtube-shorts",
+    "instagram-reels"
+  ],
   "scripts": {
     "test": "node test.mjs && node bin-test.mjs && node scan-test.mjs",
     "check-live": "node scripts/check-live.mjs"
