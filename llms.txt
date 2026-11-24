@@ -14,3 +14,5 @@ Install: npx skills add viewgum/skills, or claude plugin marketplace add viewgum
 
 - [Connect an AI assistant](https://viewgum.com/agents): steps for ChatGPT, Claude, Gemini, Grok, Codex, Cursor and others
 - [business-video-skills](https://github.com/viewgum/business-video-skills): video plans and ad rules for small businesses by industry
+- [ffmpeg-vertical-video](https://github.com/viewgum/ffmpeg-vertical-video): tested FFmpeg commands for 9:16 video, as an agent skill
+- [short-form-captions](https://github.com/viewgum/short-form-captions): word timestamps to SRT, WebVTT or ASS captions inside the safe zone, and a caption checker

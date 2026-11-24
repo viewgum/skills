@@ -5,7 +5,7 @@
     "email": "support@viewgum.com",
     "url": "https://viewgum.com"
   },
-  "description": "ViewGum's skills and MCP connector for making vertical short videos from an agent, and free short video plans for small businesses.",
+  "description": "ViewGum's skills and MCP connector for making vertical short videos from an agent, free short video plans for small businesses, and tested FFmpeg and caption tools for vertical video.",
   "plugins": [
     {
       "name": "viewgum",
@@ -23,6 +23,26 @@
       "description": "Short video plans for twelve kinds of small business (15 ideas and a 30-day calendar), with a claim check against sourced ad and claim rules for each industry. No account needed.",
       "homepage": "https://github.com/viewgum/business-video-skills",
       "license": "CC-BY-4.0"
+    },
+    {
+      "name": "ffmpeg-vertical-video",
+      "source": {
+        "source": "github",
+        "repo": "viewgum/ffmpeg-vertical-video"
+      },
+      "description": "Tested FFmpeg commands for 9:16 video for TikTok, Reels and Shorts: 16:9 to 9:16, export settings, captions inside the safe zone, compression to a size, loudness and more, each run in CI. No account needed.",
+      "homepage": "https://github.com/viewgum/ffmpeg-vertical-video",
+      "license": "MIT"
+    },
+    {
+      "name": "short-form-captions",
+      "source": {
+        "source": "github",
+        "repo": "viewgum/short-form-captions"
+      },
+      "description": "Word timestamps to SRT, WebVTT or ASS captions for vertical video, the ASS inside the safe zone with word highlighting, and a caption checker against Netflix and BBC guidelines. No account needed.",
+      "homepage": "https://github.com/viewgum/short-form-captions",
+      "license": "MIT"
     }
   ]
 }

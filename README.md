@@ -21,6 +21,11 @@ one for each kind of business (contractors, restaurants, dentists, salons, real 
 short videos and checks every line against sourced ad and claim rules for its industry. No account needed. With this
 marketplace added in Claude Code, run `claude plugin install business-video-skills@viewgum`.
 
+Two more work offline with no account: [viewgum/ffmpeg-vertical-video](https://github.com/viewgum/ffmpeg-vertical-video), tested
+FFmpeg commands for 9:16 video (`claude plugin install ffmpeg-vertical-video@viewgum`), and
+[viewgum/short-form-captions](https://github.com/viewgum/short-form-captions), word timestamps to captions inside the safe zone
+and a caption checker (`claude plugin install short-form-captions@viewgum`).
+
 ## Install
 
 ### Claude Code
