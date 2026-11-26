@@ -43,6 +43,16 @@
       "description": "Word timestamps to SRT, WebVTT or ASS captions for vertical video, the ASS inside the safe zone with word highlighting, and a caption checker against Netflix and BBC guidelines. No account needed.",
       "homepage": "https://github.com/viewgum/short-form-captions",
       "license": "MIT"
+    },
+    {
+      "name": "in-this-town-story-skill",
+      "source": {
+        "source": "github",
+        "repo": "viewgum/in-this-town-story-skill"
+      },
+      "description": "Writes In this town and In this world story scripts for vertical shorts: the rule test, the eleven measured beats, seven twist kinds, and a pace and line checker. No account needed.",
+      "homepage": "https://github.com/viewgum/in-this-town-story-skill",
+      "license": "CC-BY-4.0"
     }
   ]
 }

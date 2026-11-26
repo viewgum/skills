@@ -26,6 +26,10 @@ FFmpeg commands for 9:16 video (`claude plugin install ffmpeg-vertical-video@vie
 [viewgum/short-form-captions](https://github.com/viewgum/short-form-captions), word timestamps to captions inside the safe zone
 and a caption checker (`claude plugin install short-form-captions@viewgum`).
 
+For story shorts, [viewgum/in-this-town-story-skill](https://github.com/viewgum/in-this-town-story-skill) writes In this town and
+In this world scripts to the eleven measured beats, with seven twist kinds and a pace and line checker
+(`claude plugin install in-this-town-story-skill@viewgum`).
+
 ## Install
 
 ### Claude Code
